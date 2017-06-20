@@ -3,7 +3,6 @@
 
 """ Test cases for Validator class. """
 
-
 import sys
 sys.path.append("bin/")
 
@@ -17,6 +16,9 @@ __version__ = "0.0.1"
 __license__ = "BSD 2-Clause license"
 
 
+
+
+# ...
 def test_credit_card_validation():
 
     """ Tests several edge cases and correctness of encoding

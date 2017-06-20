@@ -3,7 +3,6 @@
 
 """ Perform sanity check against credit card numbers. """
 
-
 __all__ = [
     "company",
     "luhn_number_check",
@@ -17,6 +16,7 @@ __license__ = "BSD 2-Clause license"
 
 
 
+# ...
 def company(number):
     """ Determine issuing company based on some number rules. """
 
@@ -28,16 +28,13 @@ def company(number):
         ):
         return "AMEX"
 
-
     # Discover
     if number.startswith("6011") and len(number) == 16:
         return "Discover"
 
-
     # MasterCard
     if int(number[0:2]) in range(51, 56) and len(number) == 16:
         return "MasterCard"
-
 
     # Visa
     if (
@@ -46,12 +43,12 @@ def company(number):
         ):
         return "VISA"
 
-
     return "Unknown"
 
 
 
 
+# ...
 def luhn_number_check(number):
     """ Determine if the number is valid using Luhn algorithm """
 
@@ -84,7 +81,6 @@ def luhn_number_check(number):
     # together (i.e. 17 --> 1+7 = 8)
     summed_double_digits = [sum_double_digits(num) for num in doubled_digits]
 
-
     # 6. Determine if the credit card number is valid based on sum
     # of the following:
     #    untouched_digits
@@ -99,6 +95,7 @@ def luhn_number_check(number):
 
 
 
+# ...
 def validate_credit_card(number):
     """ Provides formatted string with information about
         supplied credit card number """
@@ -109,6 +106,7 @@ def validate_credit_card(number):
             company(number), number, luhn_number_check(number))
 
     return "non numeric input"
+
 
 
 
